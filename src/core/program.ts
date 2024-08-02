@@ -89,9 +89,9 @@ export default class Program {
     let match;
     while ((match = this.uniformRegex.exec(source)) !== null) {
       const name = match[1];
-      const location = this.gl.getUniformLocation(this.program, name);
-      if (location) {
-        this.uniformLocations.set(name, location);
+      const loc = this.gl.getUniformLocation(this.program, name);
+      if (loc) {
+        this.uniformLocations.set(name, loc);
       } else {
         console.warn(
           `Uniform '${name}' is not accessible. ` +
